@@ -1,0 +1,24 @@
+KVM
+
+ls /lib/modules/5.3.0-28-generic/kernel/arch/x86/kvm/kvm
+apt-get update
+sudo apt-cache search qemu-kvm
+sudo apt-get install qemu-kvm libvirt-bin bridge-utils qemu-system virt-manager
+sudo apt -get install libvirt-bin
+apt-get install bridge-utils qemu-system virt-manager
+sudo nano /etc/libvirt/libvirtd.conf
+// uncoment listen_addr = "0.0.0.0"
+unix_sock_group = "libvirt"
+unix_sock_ro_perms = "0777"
+unix_sock_rw_perms = "0777"
+unix_sock_dir = "/var/run/libvirt"
+auth_unix_ro = "none"
+auth_unix_rw = "none"
+//
+sudo service libvirtd restart
+virsh list
+virsh
+virsh # version
+virsh # nodeinfo
+sudo virt-manager
+
